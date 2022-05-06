@@ -1,44 +1,44 @@
 import React, {useState} from 'react';
+import Display from './Display';
 
-const UserForm = (props) => {
+
+const UserForm = () => {
     const [firstname, setFirstname] = useState("")
     const [lastname, setLastname] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    const [confirmpassword, setConfirmpassword] = useState("")
+    const [confirm, setConfirm] = useState("")
     
-  return (
+    return (
     <div>
-
-        <form>
+        <form>  
             <div>
                 <label>First Name</label> <br />
-                <input type="text" onChange = {(e) => setFirstname(e.target.value)} />{}
+                <input type="text" name="firstname" value ={firstname}
+                onChange={(e)=>setFirstname(e.target.value)}/>
             </div>
             <div>
                 <label>Last Name</label> <br />
-                <input type="text" onChange = {(e) => setLastname(e.target.value)} />{}
+                <input type="text" name ="lastname" value={lastname} 
+                onChange={(e)=>setLastname(e.target.value)}/>
             </div>
             <div>
                 <label>Email</label> <br />
-                <input type="text" onChange = {(e) => setEmail(e.target.value)} />{}
+                <input type="text" name ="email" value={email} 
+                onChange={(e)=>setEmail(e.target.value)}/>
             </div>
             <div>
                 <label>Password</label> <br />
-                <input type="password" onChange = {(e) => setPassword(e.target.value)} />{}
+                <input type="password" name="password" value={password}
+                onChange = {(e)=>setPassword(e.target.value)} />
             </div>
             <div>
                 <label>Confirm Password</label> <br />
-                <input type="password" onChange = {(e) => setConfirmpassword(e.target.value)} />{}
+                <input type="password" name="confirm" value={confirm}
+                onChange={(e)=>setConfirm(e.target.value)}/>
             </div>
         </form>
-        <div>
-            <p>{firstname}</p>
-            <p>{lastname}</p>
-            <p>{email}</p>
-            <p>{password}</p>
-            <p>{confirmpassword}</p>
-        </div>
+        <Display firstname={firstname} lastname={lastname} email={email} password={password} confirm={confirm} />
     </div>
   )
 }
